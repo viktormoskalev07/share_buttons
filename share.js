@@ -8,7 +8,7 @@ var Shares = {
 			var url = share[i].getAttribute('data-url') || location.href,
 				title = share[i].getAttribute('data-title') || '',
 				desc = share[i].getAttribute('data-desc') || '',
-				el = share[i].querySelectorAll('a');
+				el = share[i].querySelectorAll('.push');
 			for (var a = 0, al = el.length; a < al; a++) {
 				var id = el[a].getAttribute('data-id');
 				if (id) this.addEventListener(el[a], 'click', {
@@ -73,15 +73,14 @@ var Shares = {
 	}
 };
  
-
-console.log('test');
+ 
 
 window.addEventListener('load', forLoad)
  
 
 function forLoad (){
  const socialIinfo = document.getElementById('social-info');
-const buttons =	document.querySelectorAll('.social a');	
+const buttons =	document.querySelectorAll('.push-share');	
 			for(i=0 ; i < buttons.length ; i++){
 				buttons[i].addEventListener('click', function(){
 				const id =this.getAttribute('data-id');
@@ -89,9 +88,7 @@ const buttons =	document.querySelectorAll('.social a');
 				 
 						const  url = socialIinfo.dataset.url || location.href;
 		     			const title = socialIinfo.dataset.title || '';
-				 	    const	desc = socialIinfo.dataset.desc || '';
-
-						 console.log(url,title, desc);
+				 	    const	desc = socialIinfo.dataset.desc || ''; 
 						 Shares.share(id, url, title, desc);
 				}
 
